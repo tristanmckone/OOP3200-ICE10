@@ -1,5 +1,5 @@
 package ca.durhamcollege;
-import org.jetbrains.annotations.NotNull;
+
 
 import java.util.Random;
 
@@ -26,7 +26,7 @@ public class RandomVector
         return m_instance;
     }
 
-    public final @NotNull Vector2D createVector2D(final Vector2D start, final Vector2D end)
+    public final Vector2D createVector2D(final Vector2D start, final Vector2D end)
     {
         Random rand = new Random(); // random class instance
 
@@ -34,13 +34,13 @@ public class RandomVector
         float minX = Math.min(start.getX(), end.getX());
         float maxX = Math.max(start.getX(), end.getX());
 
-        float randomX = (rand.nextFloat() * maxX) + minX;
+        float randomX = (rand.nextFloat() * (maxX - minX)) + minX;
 
         // generate random y value
         float minY = Math.min(start.getY(), end.getY());
         float maxY = Math.max(start.getY(), end.getY());
 
-        float randomY = (rand.nextFloat() * maxY) + minY;
+        float randomY = (rand.nextFloat() * (maxY -minY)) + minY;
 
         return new Vector2D(randomX, randomY);
     }
